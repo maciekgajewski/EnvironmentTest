@@ -3,9 +3,16 @@
 #include <vector>
 #include <list>
 #include <string>
-#include <experimental/string_view>
 #include <algorithm>
 #include <random>
+
+#if __has_include(<experimental/string_view>)
+	#include <experimental/string_view>
+	using std::experimental::string_view;
+#else
+	#include <string_view>
+	using std::string_view;
+#endif
 
 static std::random_device rd;
 static std::uniform_int_distribution<int> dist(32, 128);
@@ -48,7 +55,7 @@ static void CopyBenchmark(benchmark::State& state)
 BENCHMARK_TEMPLATE(CopyBenchmark, std::vector<std::string>)->RangeMultiplier(4)->Range(1<<4, 1<<10);
 BENCHMARK_TEMPLATE(CopyBenchmark, std::list<std::string>)->RangeMultiplier(4)->Range(1<<4, 1<<10);
 
-BENCHMARK_TEMPLATE(CopyBenchmark, std::vector<std::experimental::string_view>)->RangeMultiplier(4)->Range(1<<4, 1<<10);
-BENCHMARK_TEMPLATE(CopyBenchmark, std::list<std::experimental::string_view>)->RangeMultiplier(4)->Range(1<<4, 1<<10);
+BENCHMARK_TEMPLATE(CopyBenchmark, std::vector<string_view>)->RangeMultiplier(4)->Range(1<<4, 1<<10);
+BENCHMARK_TEMPLATE(CopyBenchmark, std::list<string_view>)->RangeMultiplier(4)->Range(1<<4, 1<<10);
 
 BENCHMARK_MAIN();
