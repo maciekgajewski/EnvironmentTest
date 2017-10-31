@@ -6,4 +6,5 @@ Requirements:
 
 * Google Benchmark (https://github.com/google/benchmark)
 * C++-14 capable compiler
+* CMake 3.1+
 
