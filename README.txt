@@ -16,7 +16,7 @@ Build instructions:
 
 - Build Google Benchmark
 
-$ git clone <google becnhmark url>
+$ git clone <google benchmark url>
 $ mkdir benchmark-build
 $ cd benchmark-build
 $ cmake ../benchmark -DCMAKE_BUILD_TYPE=RelWithDebInfo
