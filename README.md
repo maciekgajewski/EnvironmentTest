@@ -10,50 +10,29 @@ to participate in Optiver's workshop.
 * CMake 3.1+
 * Other tools: perf, valgrind, kcachegrind
 
-On recent Ubuntu, you can install all of the above with:
+On recent Ubuntu/Debian, you can install all of the above with:
+```
 $ apt install g++ cmake perf-tools-unstable libpapi-dev valgrind kcachegrind
+```
 
 # Linux Build
-
-## Build Google Benchmark
-
 ```
-$ git clone <google benchmark url>
-$ mkdir benchmark-build
-$ cd benchmark-build
-$ cmake ../benchmark -DCMAKE_BUILD_TYPE=RelWithDebInfo
-$ make
-$ sudo make install
-```
-## Build this project, create and use out-of-source build directory
-```
-$ git clone <this repo>
+$ git clone --recursive git@github.com:maciekgajewski/EnvironmentTest.git
+$ cd EnvironmentTest
 $ mkdir build
-```
-- configure the sources. If Google Benchmark is installed outside of standard location, set BENCHMARK_ROOT variable
-```
-$ cd build
-$ cmake ../source -DCAMKE_BUILD_TYPE=RelWithDebInfo -DBENCHMARK_ROOT=/opt/google/benchmark
+$ cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo .. 
 $ make
 ```
-# Windows build instructions
 
+# Windows build instructions
 Using VS2017 Native Tools Command Prompt
 
-## Build Google Benchmark
 ```
-$ git clone <google becnhmark url>
-$ mkdir benchmark-build
-$ cd benchmark-build
-$ cmake ..\benchmark -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=c:/dev/benchmark -G "NMake Makefiles"
-$ nmake
-$ nmake install
-```
-## Build this project
-```
-$ git clone <this project>
+$ git clone --recursive git@github.com:maciekgajewski/EnvironmentTest.git
+$ cd EnvironmentTest
 $ mkdir build
 $ cd build
-$ cmake ..\source -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBENCHMARK_ROOT=c:/dev/benchmark -G "NMake Makefiles"
+$ cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -G "NMake Makefiles" ..
 $ nmake
 ```
+
