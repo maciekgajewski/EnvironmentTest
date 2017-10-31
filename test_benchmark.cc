@@ -41,7 +41,7 @@ static void CopyBenchmark(benchmark::State& state)
 	auto source = CreateVectorOfRandomStrings(length);
 	ContainerT target;
 
-	for(auto _ : state)
+	while(state.KeepRunning())
 		benchmark::DoNotOptimize(std::copy(source.begin(), source.end(), std::back_inserter(target)));
 }
 
