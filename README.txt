@@ -7,6 +7,10 @@ Requirements:
 * Google Benchmark (https://github.com/google/benchmark)
 * C++-14 capable compiler
 * CMake 3.1+
+* Other tools: perf, valgrind, kcachegrind
+
+On recent Ubuntu, you can install all of the above with:
+$ apt install g++ cmake perf-tools-unstable libpapi-dev valgrind kcachegrind
 
 Build instructions:
 
