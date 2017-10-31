@@ -14,6 +14,7 @@ if(BENCHMARK_ROOT)
 	link_directories(${BENCHMARK_ROOT}/lib)
 endif()
 
+# google benchmark need those.
 if(UNIX)
 	set(EXTRA_LIBS pthread)
 else()
